@@ -29,10 +29,7 @@ class LogAnalyzer():
 
                 if timestamp in self.summary:
                     if ip in self.summary[timestamp]:
-                        if request in self.summary[timestamp][ip]:
-                            self.summary[timestamp][ip][request] += 1
-                        else:
-                            self.summary[timestamp][ip][request] = 1
+                        self.summary[timestamp][ip][request] = self.summary[timestamp][ip].get(request, 0) + 1
                     else:
                         self.summary[timestamp][ip] = OrderedDict()
                         self.summary[timestamp][ip][request] = 1
