@@ -6,6 +6,7 @@ def num_of_python(root_dir):
     for path, sub_dirs, files in os.walk(root_dir):
         for file in files:
             if file.endswith(".py"):
+                print(os.path.join(path, file))
                 number_of_python += 1
     for sub_dir in sub_dirs:
         number_of_python += num_of_python(os.path.join(path, sub_dir))
